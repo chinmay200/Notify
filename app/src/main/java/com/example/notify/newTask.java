@@ -18,15 +18,15 @@ public class newTask extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        save = getView().findViewById(R.id.save);
-        
-//        save.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(getActivity(), "Task added succesfully", Toast.LENGTH_SHORT).show();
-//            }
-//        });
+
         view = inflater.inflate(R.layout.fragment_new_task, container, false);
+        save = view.findViewById(R.id.save);
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "Task added succesfully", Toast.LENGTH_SHORT).show();
+            }
+        });
         return view;
     }
 }

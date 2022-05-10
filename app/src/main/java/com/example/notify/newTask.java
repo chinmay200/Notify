@@ -3,6 +3,8 @@ package com.example.notify;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +26,12 @@ public class newTask extends Fragment {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                emptyfragment fragment = new emptyfragment();
                 Toast.makeText(getActivity(), "Task added succesfully", Toast.LENGTH_SHORT).show();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.framelayout , fragment);
+                fragmentTransaction.commit();
             }
         });
         return view;
